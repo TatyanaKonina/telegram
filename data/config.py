@@ -1,9 +1,17 @@
-from environs import Env
+import os
 
-# Теперь используем вместо библиотеки python-dotenv библиотеку environs
-env = Env()
-env.read_env()
+from dotenv import load_dotenv
 
-BOT_TOKEN = env.str("BOT_TOKEN")  # Забираем значение типа str
-ADMINS = env.list("ADMINS")  # Тут у нас будет список из админов
-IP = env.str("ip")  # Тоже str, но для айпи адреса хоста
+load_dotenv()
+
+BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
+admins = [
+    1184689415
+]
+
+ip = os.getenv("ip")
+
+aiogram_redis = {
+    'host': ip,
+}
+
