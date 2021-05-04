@@ -1,10 +1,17 @@
 from aiogram import executor
 
-from loader import dp
+from loader import dp,db
 import middlewares, filters, handlers
 from utils.notify_admins import on_startup_notify
 
 async def on_startup(dispatcher):
+    try:
+        db.create_table_users()
+    except Exception as err:
+        print(err)
+
+    db.delete_users()
+    print(db.select_all_users())
     # Уведомляет про запуск
     await on_startup_notify(dispatcher)
 
