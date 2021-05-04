@@ -8,6 +8,7 @@ BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
 admins = [
     1184689415
 ]
+allowed_users=[]
 
 ip = os.getenv("ip")
 
